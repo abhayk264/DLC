@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Emoji</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+      }
+      .input-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .input-field {
+        width: 200px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .submit-button {
+        margin-left: 10px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .output-container {
+        margin-top: 20px;
+        font-size: 24px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="https://daptoleagues.com.au/wp-content/uploads/2019/11/dapto.svg" alt="Logo" class="logo">
+      <div> IF YOU ARE WORKING TODAY YOU ARE AWESOME </div>
+    </br>
+    <div class="input-container">
+      <input type="text" id="name" class="input-field" placeholder="Enter your name">
+  
+      <button type="button" id="submit" class="submit-button">Submit</button>
+    </div>
+    <div class="output-container" id="output"></div>
+  </div>
+  <script>
+    const names = [];
+  
+    document.getElementById('submit').addEventListener('click', function() {
+      const name = document.getElementById('name').value;
+      const emoji = getRandomEmoji();
+      const timestamp = new Date().toLocaleTimeString();
+      const message = `<p>${name} (${timestamp}) ${emoji}</p>`;
+      names.push(message);
+      document.getElementById('output').innerHTML = names.join('') + '<p>THANK YOU, YOU GUYS ARE AWESOME</p>';
+    });
+  
+    function getRandomEmoji() {
+      const emojis = ['😀', '😂', '😊', '😃', '😄', '😅', '😆', '😉', '😊', '😇', '😎', '😍', '😘', '😗', '😙', '😚', '😜', '😝', '🤓', '😶', '😐', '😑', '😒', '😞', '😟', '😔', '😕', '😟', '😠', '😡', '😈', '👿', '👹', '👺', '🤖', '🤖‍♂️', '🤖‍♀️', '🤖‍🤝‍🤖', '🤖‍🤝‍🤖‍🤝‍🤖'];
+      return emojis[Math.floor(Math.random() * emojis.length)];
+    }
+  </script>
+  </body>
+  </html>
